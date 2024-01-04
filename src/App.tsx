@@ -4,7 +4,7 @@ import Control from './Control';
 const App: FC = () => {
   return (
     <div>
-      <h1>Howdy</h1>
+      <h1>PIXEL SHIFT</h1>
       <Control />
     </div>
   )
