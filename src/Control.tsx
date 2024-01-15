@@ -11,7 +11,11 @@ const Control: FC<ControlProps> = ({  }) => {
   const [originalImage, setOriginalImage] = useState<string | null>(null)
   
   const imageScramble = () => {
-    R34
+    //Divides image into 3x3 grid
+    const rows = 3;
+    const cols = 3;
+    const tileWidth = 300;
+    const tileHeight = 300;
   }
 
   return (
