@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import R34 from './assets/img/R34.jpeg'
 // import './App.css'
 
@@ -10,6 +10,10 @@ const Control: FC<ControlProps> = ({  }) => {
   const [tiles, setTiles] = useState<number[][]>([[]]);
   const [originalImage, setOriginalImage] = useState<string | null>(null)
   
+  useEffect(() => {
+    imageScramble();
+  }, []);
+
   const imageScramble = () => {
     //Divides image into 3x3 grid
     const rows = 3;
