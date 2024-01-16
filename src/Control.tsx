@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import R34 from './assets/img/R34.jpeg'
-import './App.css'
+// import './App.css'
 
 interface ControlProps {
   
@@ -31,10 +31,27 @@ const Control: FC<ControlProps> = ({  }) => {
   return (
     <div>
       <div className="square-image">
-        {/* original image */}
-        <img src={R34} />
-        {/* scrambled image */}
-      </div> 
+        {/* Original image */}
+        <img src={R34} alt="Original" />
+
+        {/* Display divided images */}
+        {tiles.map((row, rowIndex) =>
+          row.map((colIndex) => (
+            <div
+              key={`${rowIndex}-${colIndex}`}
+              className="grid-cell"
+              style={{
+                width: '100px',
+                height: '100px', 
+                backgroundImage: `url(${R34})`,
+                backgroundSize: '300% 300%', // Adjust based on your image size
+                backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
+              }}
+              // onClick={() => handleTileClick(rowIndex, colIndex)}
+            />
+          ))
+        )}
+      </div>
     </div>
   )
 }
