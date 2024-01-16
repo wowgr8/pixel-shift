@@ -8,7 +8,6 @@ interface ControlProps {
 
 const Control: FC<ControlProps> = ({  }) => {
   const [tiles, setTiles] = useState<number[][]>([[]]);
-  const [originalImage, setOriginalImage] = useState<string | null>(null)
   
   useEffect(() => {
     imageScramble();
