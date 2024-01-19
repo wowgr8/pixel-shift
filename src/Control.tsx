@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import R34 from './assets/img/R34.jpeg'
-// import './App.css'
+import './App.css'
 
 interface ControlProps {
   
@@ -17,8 +17,8 @@ const Control: FC<ControlProps> = ({  }) => {
     //Divides image into 3x3 grid
     const rows = 3;
     const cols = 3;
-    const tileWidth = 300;
-    const tileHeight = 300;
+    // const tileWidth = 300;
+    // const tileHeight = 300;
 
     const initialTiles: number[][] = []; // creates empty 2D array to store grid of numbers
     for (let row = 0; row < rows; row++) { // loop iterates through each row of grid
@@ -41,19 +41,20 @@ const Control: FC<ControlProps> = ({  }) => {
         {tiles.map((row, rowIndex) =>
           row.map((colIndex) => (
             <div
-              key={`${rowIndex}-${colIndex}`}
-              className="grid-cell"
-              style={{
-                width: '100px',
-                height: '100px', 
-                backgroundImage: `url(${R34})`,
-                backgroundSize: '300% 300%', // Adjust based on your image size
-                backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
-              }}
-              // onClick={() => handleTileClick(rowIndex, colIndex)}
+            key={`${rowIndex}-${colIndex}`}
+            className="grid-cell"
+            style={{
+              width: '150px',
+              height: '150px', 
+              backgroundImage: `url(${R34})`,
+              backgroundSize: '300% 300%', // Adjust based on your image size
+              backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
+            }}
+            
+            // onClick={() => handleTileClick(rowIndex, colIndex)}
             />
-          ))
-        )}
+            ))
+            )}
       </div>
     </div>
   )
