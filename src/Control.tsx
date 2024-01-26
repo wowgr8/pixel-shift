@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import R34 from './assets/img/R34.jpeg'
-import './App.css'
+// import './App.css'
 
 interface ControlProps {
   
@@ -41,22 +41,21 @@ const Control: FC<ControlProps> = ({  }) => {
           {tiles.map((row, rowIndex) =>
             row.map((colIndex) => (
               <div
-              key={`${rowIndex}-${colIndex}`}
-              className="grid-cell"
-              style={{
-                width: '150px',
-                height: '150px', 
-                backgroundImage: `url(${R34})`,
-                backgroundSize: '300% 300%', // Adjust based on your image size
-                backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
-              }}
-              
-              // onClick={() => handleTileClick(rowIndex, colIndex)}
+                key={`${rowIndex}-${colIndex}`}
+                className="grid-cell"
+                style={{
+                  width: '150px',
+                  height: '150px', 
+                  backgroundImage: `url(${R34})`,
+                  backgroundSize: '300% 300%', // Adjust based on your image size
+                  backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
+                }}
+                // onClick={() => handleTileClick(rowIndex, colIndex)}
               />
-              ))
-              )}
-          </div> 
+            ))
+          )}
         </div> 
+      </div> 
     </div>
   )
 }
