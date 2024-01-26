@@ -37,7 +37,7 @@ const Control: FC<ControlProps> = ({  }) => {
         {/* <img src={R34} alt="Original" /> */}
         {/* Display divided images */}
       <div className='border border-gray-500 p-4'> 
-        <div className=''> 
+        <div className='grid grid-cols-3 gap-4'> 
           {tiles.map((row, rowIndex) =>
             row.map((colIndex) => (
               <div
