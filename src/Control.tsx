@@ -32,30 +32,31 @@ const Control: FC<ControlProps> = ({  }) => {
   }
 
   return (
-    <div>
-      <div className="square-image">
+    <div className='flex items-center justify-center h-screen'>
         {/* Original image */}
-        <img src={R34} alt="Original" />
-
+        {/* <img src={R34} alt="Original" /> */}
         {/* Display divided images */}
-        {tiles.map((row, rowIndex) =>
-          row.map((colIndex) => (
-            <div
-            key={`${rowIndex}-${colIndex}`}
-            className="grid-cell"
-            style={{
-              width: '150px',
-              height: '150px', 
-              backgroundImage: `url(${R34})`,
-              backgroundSize: '300% 300%', // Adjust based on your image size
-              backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
-            }}
-            
-            // onClick={() => handleTileClick(rowIndex, colIndex)}
-            />
-            ))
-            )}
-      </div>
+      <div className='border border-gray-500 p-4'> 
+        <div className=''> 
+          {tiles.map((row, rowIndex) =>
+            row.map((colIndex) => (
+              <div
+              key={`${rowIndex}-${colIndex}`}
+              className="grid-cell"
+              style={{
+                width: '150px',
+                height: '150px', 
+                backgroundImage: `url(${R34})`,
+                backgroundSize: '300% 300%', // Adjust based on your image size
+                backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
+              }}
+              
+              // onClick={() => handleTileClick(rowIndex, colIndex)}
+              />
+              ))
+              )}
+          </div> 
+        </div> 
     </div>
   )
 }
