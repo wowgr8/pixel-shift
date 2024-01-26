@@ -44,11 +44,11 @@ const Control: FC<ControlProps> = ({  }) => {
                 key={`${rowIndex}-${colIndex}`}
                 className="grid-cell"
                 style={{
-                  width: '150px',
-                  height: '150px', 
+                  width: '200px',
+                  height: '200px', 
                   backgroundImage: `url(${R34})`,
                   backgroundSize: '300% 300%', // Adjust based on your image size
-                  backgroundPosition: `-${(colIndex / 3) * 100}% -${(rowIndex / 3) * 100}%`,
+                  backgroundPosition: `-${(colIndex / 2) * 100}% -${(rowIndex / 2) * 100}%`, // ADJUST: divide rowIndex & colIndex by 3 and make image into a perfect square before scramble.
                 }}
                 // onClick={() => handleTileClick(rowIndex, colIndex)}
               />
