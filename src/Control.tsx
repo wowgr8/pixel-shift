@@ -29,13 +29,11 @@ const Control: FC<ControlProps> = ({  }) => {
       initialTiles.push(rowArray); //each column in current row is pushed to tilesArray - completes one row of the grid
     }
     setTiles(initialTiles);
+    console.log("Tiles: ", tiles)
   }
 
   return (
     <div className='flex items-center justify-center h-screen'>
-        {/* Original image */}
-        {/* <img src={R34} alt="Original" /> */}
-        {/* Display divided images */}
       <div className='border border-gray-500 p-4'> 
         <div className='grid grid-cols-3 gap-4'> 
           {tiles.map((row, rowIndex) =>
