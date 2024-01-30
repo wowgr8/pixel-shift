@@ -13,45 +13,47 @@ const Control: FC<ControlProps> = ({  }) => {
     imageScramble();
   }, []);
 
-  const imageScramble = () => {
-    //Divides image into 3x3 grid
-    const rows = 3;
-    const cols = 3;
-    // const tileWidth = 300;
-    // const tileHeight = 300;
-
-    const initialTiles: number[][] = []; // creates empty 2D array to store grid of numbers
-    for (let row = 0; row < rows; row++) { // loop iterates through each row of grid
-      const rowArray: number[] = []; //new empty array created for each row
-      for (let col = 0; col < cols; col++) { // neested loop iterates through each column in current row
-        rowArray.push(row * cols + col); //gives unique number for each cell in the grid, based on row and column position, then push to rowArray
+  const rows = 3;
+  const cols = 3;
+  
+  const imageScramble = (R34) => {
+  
+    // Create an array of objects representing tiles with id and tile properties
+    const initialTiles = [];
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const id = row * cols + col;
+        const tile = row * cols + col;
+        initialTiles.push({ id, tile });
       }
-      initialTiles.push(rowArray); //each column in current row is pushed to tilesArray - completes one row of the grid
     }
+  
+    // Shuffle the initialTiles array to get a random order
+    for (let i = initialTiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [initialTiles[i], initialTiles[j]] = [initialTiles[j], initialTiles[i]];
+    }
+  
     setTiles(initialTiles);
-    console.log("Tiles: ", tiles)
-  }
+  };
 
   return (
     <div className='flex items-center justify-center h-screen'>
       <div className='border border-gray-500 p-4'> 
         <div className='grid grid-cols-3 gap-4'> 
-          {tiles.map((row, rowIndex) =>
-            row.map((colIndex) => (
-              <div
-                key={`${rowIndex}-${colIndex}`}
-                className="grid-cell"
-                style={{
-                  width: '200px',
-                  height: '200px', 
-                  backgroundImage: `url(${R34})`,
-                  backgroundSize: '300% 300%', // Adjust based on your image size
-                  backgroundPosition: `-${(colIndex / 2) * 100}% -${(rowIndex / 2) * 100}%`, // ADJUST: divide rowIndex & colIndex by 3 and make image into a perfect square before scramble.
-                }}
-                // onClick={() => handleTileClick(rowIndex, colIndex)}
-              />
-            ))
-          )}
+          {tiles.map((tile) => (
+            <div
+              key={tile.id}
+              className="grid-cell"
+              style={{
+                width: '200px',
+                height: '200px',
+                backgroundImage: `url(${R34})`,
+                backgroundSize: '300% 300%',
+                backgroundPosition: `-${(tile.tile % cols) * 100}% -${Math.floor(tile.tile / rows) * 100}%`,
+              }}
+            />
+          ))}
         </div> 
       </div> 
     </div>
